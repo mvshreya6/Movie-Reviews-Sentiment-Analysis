@@ -1,4 +1,4 @@
-#importing libraries
+#6.1 importing libraries
 import numpy as np 
 import pandas as pd
 import re
@@ -10,14 +10,15 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB,MultinomialNB,BernoulliNB
 from sklearn.metrics import accuracy_score	
 import pickle
-6.2. uploading csv file
+
+#6.2. uploading csv file
 from google.colab import files
 uploaded = files.upload()
 
 
 
 
-6.3. reading csv file
+#6.3. reading csv file
 import pandas as pd
 import io
 data=pd.read_csv(io.BytesIO(uploaded['imdb.csv]))
@@ -66,7 +67,8 @@ def stem_txt(text):
 data.review = data.review.apply(stem_txt)
 data.review[0]
 data.head()
-CREATING THE MODEL
+                                     
+#6.4 CREATING THE MODEL
 X = np.array(data.iloc[:,0].values)
 y = np.array(data.sentiment.values)
 cv = CountVectorizer(max_features = 1000)
